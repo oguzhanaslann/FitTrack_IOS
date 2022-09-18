@@ -1,0 +1,6 @@
+framework module Pods_FitTrack_IOSTests {
+  umbrella header "Pods-FitTrack_IOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

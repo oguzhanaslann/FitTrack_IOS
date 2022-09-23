@@ -9,24 +9,6 @@ import UIKit
 import SnapKit
 import Foundation
 
-func FTSubHeader1(
-    text : String,
-    color : UIColor = .black,
-    font : UIFont  = UIFont.boldSystemFont(ofSize: 18)
-) -> UILabel {
-    let label = UILabel()
-    label.text = text
-    label.textColor = color
-    label.font = font
-    return label
-}
-
-class BaseViewContoller : UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = backgroundColor
-    }
-}
 
 
 class OnBoardingViewContoller: BaseViewContoller {
@@ -57,10 +39,6 @@ class OnBoardingViewContoller: BaseViewContoller {
         view.alpha = 0.25
         return view
     }()
-
-
-    
-
 
     override func viewDidLoad() {
         super.viewDidLoad()

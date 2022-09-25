@@ -50,9 +50,9 @@ class OnBoardingViewContoller: BaseViewContoller, UIScrollViewDelegate {
     
     lazy var onboardPage1 : UIView = {
         return onboardingPage(
-            title: "Have a good health",
+            title: Localization.onboard1Title.localize(),
             image: FtImage(name: "runningWomanFigure"),
-            slogan: "Being healthy is all, no health is nothing. So why do not we"
+            slogan: Localization.onboard1Slogan.localize()
         )
     }()
     
@@ -93,18 +93,18 @@ class OnBoardingViewContoller: BaseViewContoller, UIScrollViewDelegate {
 
     lazy var onboardPage2 : UIView = {
         return onboardingPage(
-            title: "Be Stronger",
+            title: Localization.onboard2Title.localize(),
             image: FtImage(name: "liftingWomanFigure"),
-            slogan: "Take 30 minutes of bodybuilding every day to get physically fit and healthy."
+            slogan: Localization.onboard2Slogan.localize()
         )
     }()
     
     
     lazy var onboardPage3 : UIView = {
         return onboardingPage(
-            title: "Have a nice body",
+            title: Localization.onboard3Title.localize(),
             image: FtImage(name: "ManWomanFigure"),
-            slogan: "Exercise is king. Nutrition is queen. Put them together and you’ve got a kingdom."
+            slogan: Localization.onboard3Slogan.localize()
         )
     }()
     
@@ -152,7 +152,7 @@ class OnBoardingViewContoller: BaseViewContoller, UIScrollViewDelegate {
     
 
     lazy var nextPageButton : UIButton = {
-        let button = FtLargeButton(titleOnNormalState: "Next", backgroundColor: onPrimaryColor, titleColorOnNormalState: primaryColor)
+        let button = FtLargeButton(titleOnNormalState: Localization.next.localize(), backgroundColor: onPrimaryColor, titleColorOnNormalState: primaryColor)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
@@ -249,9 +249,9 @@ class OnBoardingViewContoller: BaseViewContoller, UIScrollViewDelegate {
         
         let isLastPage = Int(pageIndex) == (pageControll.numberOfPages - 1 )
         if isLastPage {
-            nextPageButton.setTitle("Start", for: .normal)
+            nextPageButton.setTitle(Localization.start.localize(), for: .normal)
         } else {
-            nextPageButton.setTitle("Next", for: .normal)
+            nextPageButton.setTitle(Localization.next.localize(), for: .normal)
         }
     }
 }

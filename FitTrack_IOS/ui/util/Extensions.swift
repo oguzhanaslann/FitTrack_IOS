@@ -16,3 +16,33 @@ extension UILabel {
         self.lineBreakMode = .byTruncatingTail
     }
 }
+
+
+extension UIView {
+    func hide() {
+        self.isHidden = true
+    }
+    
+    func show() {
+        self.isHidden = false
+    }
+    
+}
+
+extension UIAlertController {
+    func showOn(_ controller: UIViewController, isAnimated : Bool , completion: (() -> Void)? = nil) {
+        controller.present(self, animated: isAnimated, completion: completion)
+    }
+}
+
+extension Bool {
+    func not()  -> Bool {
+        return !self
+    }
+}
+
+extension String {
+    func localize(_ key : String? = nil) -> String {
+      return NSLocalizedString( key ?? self , comment: "")
+    }
+}

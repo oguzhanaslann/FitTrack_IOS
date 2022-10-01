@@ -8,6 +8,14 @@
 import Foundation
 import UIKit
 
+extension UIScrollView {
+    func scrollTo(horizontalPage : Int = 0, verticalPage: Int = 0, animated : Bool = true) {
+        var frame = self.frame
+        frame.origin.x = frame.size.width * CGFloat(horizontalPage)
+        frame.origin.y = frame.size.width * CGFloat(verticalPage)
+        self.scrollRectToVisible(frame, animated: animated)
+    }
+}
 
 extension UILabel {
     func breakLineFromEndIfNeeded() {

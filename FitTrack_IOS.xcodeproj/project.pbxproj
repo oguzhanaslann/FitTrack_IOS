@@ -23,6 +23,8 @@
 		D443E8A828E07BD8004E7557 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D443E8A728E07BD8004E7557 /* Buttons.swift */; };
 		D443E8AA28E08766004E7557 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D443E8A928E08766004E7557 /* Localization.swift */; };
 		D443E8AD28E08B28004E7557 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D443E8AF28E08B28004E7557 /* Localizable.strings */; };
+		D451265728E6A62500B7227C /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D451265628E6A62500B7227C /* AuthenticationViewController.swift */; };
+		D4A1BF9F28E8895F00AD435C /* WindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A1BF9E28E8895F00AD435C /* WindowDelegate.swift */; };
 		D4AB622128DD6D2F00D39EC7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AB622028DD6D2F00D39EC7 /* BaseViewController.swift */; };
 		D4B943C528D775B0006B0AD0 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B943C428D775B0006B0AD0 /* Color.swift */; };
 		D4B943C728D780DB006B0AD0 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B943C628D780DB006B0AD0 /* Type.swift */; };
@@ -92,6 +94,8 @@
 		D443E8A728E07BD8004E7557 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		D443E8A928E08766004E7557 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		D443E8AE28E08B28004E7557 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D451265628E6A62500B7227C /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		D4A1BF9E28E8895F00AD435C /* WindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowDelegate.swift; sourceTree = "<group>"; };
 		D4AB622028DD6D2F00D39EC7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D4B943C428D775B0006B0AD0 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D4B943C628D780DB006B0AD0 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				D4272AA628D6224300CE5BCD /* Assets.xcassets */,
 				D4272AA828D6224300CE5BCD /* LaunchScreen.storyboard */,
 				D4272AAB28D6224300CE5BCD /* Info.plist */,
+				D4A1BF9E28E8895F00AD435C /* WindowDelegate.swift */,
 			);
 			path = FitTrack_IOS;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				D4AB621D28DD6D0700D39EC7 /* base */,
 				D4B943C328D775A5006B0AD0 /* Theme */,
 				D4272AA128D6224100CE5BCD /* OnBoardingViewContoller.swift */,
+				D451265628E6A62500B7227C /* AuthenticationViewController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -563,7 +569,9 @@
 				D443E8A528E07A12004E7557 /* Shape.swift in Sources */,
 				D4B943C528D775B0006B0AD0 /* Color.swift in Sources */,
 				D4272A9E28D6224100CE5BCD /* AppDelegate.swift in Sources */,
+				D451265728E6A62500B7227C /* AuthenticationViewController.swift in Sources */,
 				D4272AA028D6224100CE5BCD /* SceneDelegate.swift in Sources */,
+				D4A1BF9F28E8895F00AD435C /* WindowDelegate.swift in Sources */,
 				D4AB622128DD6D2F00D39EC7 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

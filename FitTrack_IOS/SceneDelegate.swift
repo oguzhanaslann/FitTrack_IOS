@@ -18,28 +18,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let PEOPLE_PAGE_INDEX = 0
     let SEARCH_PAGE_INDEX = 1
     let PROFILE_PAGE_INDEX = 2
-   
-    var window: UIWindow?
-    
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        window = UIWindow(frame: windowScene.coordinateSpace.bounds )
-        window?.windowScene = windowScene
+        WindowDelegate.shared.window = UIWindow(frame: windowScene.coordinateSpace.bounds )
+        WindowDelegate.shared.window?.windowScene = windowScene
         /*
         let rootViewController = UITabBarController()
         initTabBarController(tabbarController: rootViewController)
         
-        let navController = UINavigationController(rootViewController: rootViewController)
+        
         navController.navigationBar.isHidden = true
         window?.rootViewController = navController
         window?.makeKeyAndVisible()*/
         
-        window?.rootViewController = OnBoardingViewContoller()
-        window?.makeKeyAndVisible()
+        let rootViewController = OnBoardingViewContoller()
+        let navController = UINavigationController(rootViewController: rootViewController)
+        WindowDelegate.shared.setRootViewController(rootViewController: navController)
     }
     
     private func initTabBarController(tabbarController : UITabBarController) {

@@ -10,12 +10,23 @@ import SnapKit
 import Foundation
 
 
-extension UIScrollView {
-    func scrollTo(horizontalPage : Int = 0, verticalPage: Int = 0, animated : Bool = true) {
-        var frame = self.frame
-        frame.origin.x = frame.size.width * CGFloat(horizontalPage )
-        frame.origin.y = frame.size.width * CGFloat(verticalPage)
-        self.scrollRectToVisible(frame, animated: animated)
+class ClosureSleeve {
+  let closure: () -> ()
+
+  init(attachTo: AnyObject, closure: @escaping () -> ()) {
+    self.closure = closure
+    objc_setAssociatedObject(attachTo, "[\(arc4random())]", self, .OBJC_ASSOCIATION_RETAIN)
+  }
+
+  @objc func invoke() {
+    closure()
+  }
+}
+
+extension UIControl {
+    func setOnClickListener(for controlEvents: UIControl.Event = .primaryActionTriggered, action: @escaping () -> ()) {
+        let sleeve = ClosureSleeve(attachTo: self, closure: action)
+        addTarget(sleeve, action: #selector(ClosureSleeve.invoke), for: controlEvents)
     }
 }
 
@@ -153,17 +164,23 @@ class OnBoardingViewContoller: BaseViewContoller, UIScrollViewDelegate {
 
     lazy var nextPageButton : UIButton = {
         let button = FtLargeButton(titleOnNormalState: Localization.next.localize(), backgroundColor: onPrimaryColor, titleColorOnNormalState: primaryColor)
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.setOnClickListener {
+            print("Log")
+            self.buttonAction()
+        }
         return button
     }()
     
-    @objc
-    func buttonAction(sender: UIButton!) {
+    func buttonAction() {
         let currentPage = Int(round(scrollView.contentOffset.x / view.frame.width))
-        if currentPage <= pageControll.numberOfPages {
-            scrollView.scrollTo(horizontalPage: currentPage + 1)
+        let lastPageIndex = pageControll.numberOfPages - 1
+        let isLastPage = currentPage ==  lastPageIndex
+        if isLastPage   {
+            WindowDelegate.shared.setRootViewController(
+                rootViewController: AuthenticationViewController()
+            )
         } else {
-            // Finish onboard
+            scrollView.scrollTo(horizontalPage: currentPage + 1)
         }
     }
 

@@ -9,28 +9,9 @@ import UIKit
 import SnapKit
 import Foundation
 
-
-class ClosureSleeve {
-  let closure: () -> ()
-
-  init(attachTo: AnyObject, closure: @escaping () -> ()) {
-    self.closure = closure
-    objc_setAssociatedObject(attachTo, "[\(arc4random())]", self, .OBJC_ASSOCIATION_RETAIN)
-  }
-
-  @objc func invoke() {
-    closure()
-  }
-}
-
-extension UIControl {
-    func setOnClickListener(for controlEvents: UIControl.Event = .primaryActionTriggered, action: @escaping () -> ()) {
-        let sleeve = ClosureSleeve(attachTo: self, closure: action)
-        addTarget(sleeve, action: #selector(ClosureSleeve.invoke), for: controlEvents)
-    }
-}
-
 class OnBoardingViewContoller: BaseViewContoller, UIScrollViewDelegate {
+    
+    let viewModel : OnboardViewModel = Injector.shared.injectOnboardViewModel()
     
     let circle: UIView = {
         let view =  UIView()
@@ -165,7 +146,6 @@ class OnBoardingViewContoller: BaseViewContoller, UIScrollViewDelegate {
     lazy var nextPageButton : UIButton = {
         let button = FtLargeButton(titleOnNormalState: Localization.next.localize(), backgroundColor: onPrimaryColor, titleColorOnNormalState: primaryColor)
         button.setOnClickListener {
-            print("Log")
             self.buttonAction()
         }
         return button
@@ -176,6 +156,7 @@ class OnBoardingViewContoller: BaseViewContoller, UIScrollViewDelegate {
         let lastPageIndex = pageControll.numberOfPages - 1
         let isLastPage = currentPage ==  lastPageIndex
         if isLastPage   {
+            viewModel.markOnboardAsSeen()
             WindowDelegate.shared.setRootViewController(
                 rootViewController: AuthenticationViewController()
             )
@@ -266,9 +247,9 @@ class OnBoardingViewContoller: BaseViewContoller, UIScrollViewDelegate {
         
         let isLastPage = Int(pageIndex) == (pageControll.numberOfPages - 1 )
         if isLastPage {
-            nextPageButton.setTitle(Localization.start.localize(), for: .normal)
+            nextPageButton.setTitle(Localization.localized(.start), for: .normal)
         } else {
-            nextPageButton.setTitle(Localization.next.localize(), for: .normal)
+            nextPageButton.setTitle(Localization.localized(.next), for: .normal)
         }
     }
 }

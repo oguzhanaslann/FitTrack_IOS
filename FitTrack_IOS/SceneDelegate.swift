@@ -35,8 +35,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navController.navigationBar.isHidden = true
         window?.rootViewController = navController
         window?.makeKeyAndVisible()*/
-        
-        let rootViewController = OnBoardingViewContoller()
+        let hasSeenOnboard = UserDefaults.standard.bool(forKey: "fittrack.ios.onboard.seen")
+        let rootViewController = hasSeenOnboard ? AuthenticationViewController() : OnBoardingViewContoller()
         let navController = UINavigationController(rootViewController: rootViewController)
         WindowDelegate.shared.setRootViewController(rootViewController: navController)
     }

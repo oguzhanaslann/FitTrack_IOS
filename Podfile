@@ -13,6 +13,7 @@ target 'FitTrack_IOS' do
   # Pods for FitTrack_IOS
 	
   pod 'SnapKit', '~> 5.6.0'
+  pod 'Swinject'
 
   target 'FitTrack_IOSTests' do
     inherit! :search_paths
@@ -22,9 +23,6 @@ target 'FitTrack_IOS' do
   target 'FitTrack_IOSUITests' do
     # Pods for testing
   end
-
-
-
 end
 
 

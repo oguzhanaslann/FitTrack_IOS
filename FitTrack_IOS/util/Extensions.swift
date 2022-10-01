@@ -54,3 +54,10 @@ extension String {
       return NSLocalizedString( key ?? self , comment: "")
     }
 }
+
+extension UIControl {
+    func setOnClickListener(for controlEvents: UIControl.Event = .primaryActionTriggered, action: @escaping () -> ()) {
+        let sleeve = ClosureSleeve(attachTo: self, closure: action)
+        addTarget(sleeve, action: #selector(ClosureSleeve.invoke), for: controlEvents)
+    }
+}

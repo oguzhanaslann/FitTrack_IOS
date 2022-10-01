@@ -26,4 +26,8 @@ extension Localization {
     func localize(_ key : String? = nil) -> String {
         return NSLocalizedString( key ?? self.rawValue , comment: "")
     }
+    
+    static func localized( _ localization :Localization) -> String {
+        return localization.localize()
+    }
 }

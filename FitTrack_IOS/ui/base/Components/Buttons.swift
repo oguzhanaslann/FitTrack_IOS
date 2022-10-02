@@ -20,6 +20,6 @@ func FtLargeButton(
     }
     button.backgroundColor = backgroundColor
     button.setTitleColor(titleColorOnNormalState, for: .normal)
-    button.layer.cornerRadius = roundedLargeCornerRadius
+    button.layer.cornerRadius = roundedMediumCornerRadius
     return button 
 }

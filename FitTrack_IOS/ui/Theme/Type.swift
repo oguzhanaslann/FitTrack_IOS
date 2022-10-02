@@ -23,7 +23,7 @@ func FtLargeTitle(
 func FtTitle1(
     text : String,
     color : UIColor = .black,
-    font : UIFont  = UIFont.poppinsBold(size: 28) ?? UIFont.systemFont(ofSize: 28)
+    font : UIFont  = UIFont.poppinsBold(size: 24) ?? UIFont.systemFont(ofSize: 24)
 ) -> UILabel {
     let label = UILabel()
     label.text = text
@@ -131,7 +131,7 @@ func FtFootnote(
 func FtCaption(
     text : String,
     color : UIColor = .black,
-    font : UIFont  = UIFont.poppinsRegular(size: 12) ?? UIFont.systemFont(ofSize: 12)
+    font : UIFont  = UIFont.poppinsRegular(size: 14) ?? UIFont.systemFont(ofSize: 14)
 ) -> UILabel {
     let label = UILabel()
     label.text = text
@@ -141,10 +141,14 @@ func FtCaption(
 }
 
 
+func FtCaption2Font() -> UIFont {
+    return UIFont.poppinsRegular(size: 12) ?? UIFont.systemFont(ofSize: 12)
+}
+
 func FtCaption2(
     text : String,
     color : UIColor = .black,
-    font : UIFont  = UIFont.poppinsRegular(size: 11) ?? UIFont.systemFont(ofSize: 11)
+    font : UIFont  = FtCaption2Font()
 ) -> UILabel {
     let label = UILabel()
     label.text = text

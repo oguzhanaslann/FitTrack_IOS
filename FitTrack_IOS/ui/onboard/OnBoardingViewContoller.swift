@@ -13,31 +13,22 @@ class OnBoardingViewContoller: BaseViewContoller, UIScrollViewDelegate {
     
     let viewModel : OnboardViewModel = Injector.shared.injectOnboardViewModel()
     
-    let circle: UIView = {
-        let view =  UIView()
-        view.backgroundColor = onPrimaryColor
-        return view
+    lazy var circle: UIView = {
+        return uiCircle()
     }()
-
+    
     let circle2: UIView = {
-        let view =  UIView()
-        view.backgroundColor = onPrimaryColor
-        view.alpha = 0.77
-        return view
+        return uiCircle(alpha: 0.77)
     }()
 
     let circle3: UIView = {
         let view =  UIView()
-        view.backgroundColor = onPrimaryColor
-        view.alpha = 0.57
-        return view
+        return uiCircle(alpha: 0.57)
     }()
     
     let circle4: UIView = {
         let view =  UIView()
-        view.backgroundColor = onPrimaryColor
-        view.alpha = 0.25
-        return view
+        return uiCircle(alpha: 0.25)
     }()
     
     lazy var onboardPage1 : UIView = {

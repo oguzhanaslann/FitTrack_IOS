@@ -20,6 +20,9 @@ enum Localization : String {
     
     case onboard3Title = "onboard3Title"
     case onboard3Slogan = "onboard3Slogan"
+    
+    case signIn = "singin"
+    case welcomeBack = "welcomeback"
 }
 
 extension Localization {
